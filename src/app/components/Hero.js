@@ -220,112 +220,114 @@ export default function Hero() {
               </section>
     );
 
+    const OurServices = () => {
+      const [visibleService, setVisibleService] = useState(null);
     
-const OurServices = () => {
-  const [visibleService, setVisibleService] = useState(null);
-
-  const services = [
-    {
-      title: 'F',
-      header: 'Foundation',
-      description: 'Description of foundation.',
-      items: [
-        { icon: '/images/market-research.png', label: 'Market Research' },
-        { icon: '/images/market-research.png', label: 'Feasibility Study/Business Plan' },
-        { icon: '/images/market-research.png', label: 'Business Consultation' },
-      ],
-    },
-    {
-      title: 'A',
-      header: 'Advancement',
-      description: '5THIS ISHHD YE D.',
-      items: [
-        { icon: '/images/market-research.png', label: 'Market Research' },
-        { icon: '/images/market-research.png', label: 'Feasibility Study/Business Plan' },
-        { icon: '/images/market-research.png', label: 'Business Consultation' },
-      ],
-    },
-  ];
-
-  const toggleOurServicesVisibility = (index) => {
-    setVisibleService(visibleService === index ? null : index);
-  };
-
-  return (
-    <section>
-      <div className="p-40 w-screen items-center justify-center bg-zinc-800">
-        <div className="text-white">
-          <div className="flex justify-between">
-            <div className="max-w-3xl">
-              <h2 className="text-5xl">Our Services</h2>
-              <p className="text-l text-gray-400 pt-7">
-                Isn't just a tagline--it's our mission. We help you reach the top, side by side. Isn't just a tagline--it's our mission. We help you reach the top, side by side.
-              </p>
-              <p className="text-l text-gray-400 pt-7">
-                Our team is here for you 24/7. Ready to tackle challenges and celebrate milestones together.
-              </p>
-            </div>
-            <div>
-              <Image
-                src="/images/office-girlicon.png"
-                alt="Office Girl Icon"
-                width={200}
-                height={200}
-                className="float-right"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Services */}
-        {services.map((service, index) => (
-          <div className="flex bg-zinc-700 mt-10" key={index}>
-            <div className="bg-blue-700 p-5 flex items-center text-white">
-              <h2
-                className="text-center cursor-pointer"
-                onClick={() => toggleOurServicesVisibility(index)}
-              >
-                {service.title}
-              </h2>
-            </div>
-            <div
-              className={`flex justify-between w-full text-white p-5 overflow-hidden transition-max-height duration-500 ease-in-out ${
-                visibleService === index ? 'max-h-96' : 'max-h-0'
-              }`}
-            >
-              <div className="flex flex-col mb-auto mt-auto">
-                <h2
-                  className="text-xl uppercase cursor-pointer"
-                  onClick={() => toggleOurServicesVisibility(index)}
-                >
-                  {service.header}
-                </h2>
-                <p className="text-gray-400">{service.description}</p>
+      const services = [
+        {
+          title: 'F',
+          header: 'Foundation',
+          description: 'text.',
+          items: [
+            { icon: '/images/market-research.png', label: 'Market Research' },
+            { icon: '/images/market-research.png', label: 'Feasibility Study/Business Plan' },
+            { icon: '/images/market-research.png', label: 'Business Consultation' },
+          ],
+        },
+        {
+          title: 'A',
+          header: 'Advancement',
+          description: 'text.',
+          items: [
+            { icon: '/images/market-research.png', label: 'Market Research' },
+            { icon: '/images/market-research.png', label: 'Feasibility Study/Business Plan' },
+            { icon: '/images/market-research.png', label: 'Business Consultation' },
+          ],
+        },
+       
+      ];
+    
+      const toggleOurServicesVisibility = (index) => {
+        setVisibleService(visibleService === index ? null : index);
+      };
+    
+      return (
+        <section>
+          <div className="p-40 w-screen items-center justify-center bg-zinc-800">
+            <div className="text-white">
+              <div className="flex justify-between">
+                <div className="max-w-3xl">
+                  <h2 className="text-5xl">Our Services</h2>
+                  <p className="text-l text-gray-400 pt-7">
+                    Isn't just a tagline--it's our mission. We help you reach the top, side by side. Isn't just a tagline--it's our mission. We help you reach the top, side by side.
+                  </p>
+                  <p className="text-l text-gray-400 pt-7">
+                    Our team is here for you 24/7. Ready to tackle challenges and celebrate milestones together.
+                  </p>
+                </div>
+                <div>
+                  <Image
+                    src="/images/office-girlicon.png"
+                    alt="Office Girl Icon"
+                    width={200}
+                    height={200}
+                    className="float-right"
+                  />
+                </div>
               </div>
-              <div className="flex flex-col items-end">
-                {service.items.map((item, itemIndex) => (
-                  <div
-                    className="flex flex-row p-1 bg-zinc-600 max-w-fit mb-4"
-                    key={itemIndex}
+            </div>
+    
+           
+            {services.map((service, index) => (
+              <div className="flex bg-zinc-700 mt-10" key={index}>
+                <div className="bg-blue-700 p-5 flex items-center text-white">
+                  <h2
+                    className="text-center cursor-pointer"
+                    onClick={() => toggleOurServicesVisibility(index)}
                   >
-                    <Image
-                      src={item.icon}
-                      alt={item.label}
-                      width={30}
-                      height={30}
-                      className=""
-                    />
-                    <button className="">{item.label}</button>
+                    {service.title}
+                  </h2>
+                </div>
+                <div
+                  className={`flex justify-between w-full text-white p-5 overflow-hidden transition-all duration-500 ease-in-out ${
+                    visibleService === index ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="flex flex-col mb-auto mt-auto">
+                    <h2
+                      className="text-xl uppercase cursor-pointer"
+                      onClick={() => toggleOurServicesVisibility(index)}
+                    >
+                      {service.header}
+                    </h2>
+                    <p className="text-gray-400">{service.description}</p>
                   </div>
-                ))}
+                  <div className="flex flex-col items-end">
+                    {service.items.map((item, itemIndex) => (
+                      <div
+                        className="flex flex-row p-1 bg-zinc-600 max-w-fit mb-4"
+                        key={itemIndex}
+                      >
+                        <Image
+                          src={item.icon}
+                          alt={item.label}
+                          width={30}
+                          height={30}
+                          className=""
+                        />
+                        <button className="ml-2">{item.label}</button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
-  );
-};
+        </section>
+      );
+    };
+    
+
 
     const FaqSection = () => {
       const [visibleFaq, setVisibleFaq] = useState(null);
